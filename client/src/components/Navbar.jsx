@@ -17,8 +17,8 @@ import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { GiTechnoHeart } from 'react-icons/gi';
 
 const links = [
-  { linkName: 'Produits', path: '/products' },
-  { linkName: "Panier d'achat", path: '/cart' },
+  { linkName: 'Produits', path: '/produits' },
+  { linkName: 'Paniers', path: '/paniers' },
 ];
 
 const NavLink = ({ path, children }) => (
@@ -45,11 +45,12 @@ const Navbar = () => {
           display={{ md: 'none' }}
           onClick={isOpen ? onClose : onOpen}
         />
+
         <HStack>
           <Link as={ReactLink} to='/'>
             <Flex alignItems='center'>
               <Icon as={GiTechnoHeart} h={6} w={6} color='orange.400' />
-              <Text fontWeight='bolder'>Diama Shop</Text>
+              <Text fontWeight='extrabold'>Diama Shop</Text>
             </Flex>
           </Link>
           <HStack as='nav' spacing={4} display={{ base: 'none', md: 'flex' }}>
@@ -59,7 +60,7 @@ const Navbar = () => {
               </NavLink>
             ))}
           </HStack>
-        </HStack >
+        </HStack>
         <Flex alignItems='center'>
           <NavLink>
             <Icon
@@ -68,12 +69,12 @@ const Navbar = () => {
               onClick={() => toggleColorMode()}
             />
           </NavLink>
-          <Button as={ReactLink} to='/login' p={2} fontSize='sm' fontWeight={400} variant='link'>
-           Se connecter
+          <Button as={ReactLink} to='/connexion' p={2} fontSize='sm' fontWeight={400} variant='link'>
+            Se connecter
           </Button>
           <Button
             as={ReactLink}
-            to='/registration'
+            to='/inscription'
             m={2}
             display={{ base: 'none', md: 'inline-flex' }}
             fontSize='sm'
@@ -81,10 +82,10 @@ const Navbar = () => {
             _hover={{ bg: 'orange.400' }}
             bg='orange.500'
             color='white'>
-            S'inscrire
+            Ouvrir un compte
           </Button>
-          </Flex>
-      </Flex >
+        </Flex>
+      </Flex>
       {isOpen ? (
         <Box pb={4} display={{ md: 'none' }}>
           <Stack as='nav' spacing={4}>
@@ -93,14 +94,14 @@ const Navbar = () => {
                 {link.linkName}
               </NavLink>
             ))}
-            <NavLink key='sign up' path='/registration'>
-              S'inscrire
+            <NavLink key='sign up' path='/inscription'>
+              Ouvrir un compte
             </NavLink>
           </Stack>
         </Box>
       ) : null}
-    </Box >
-  )
-}
+    </Box>
+  );
+};
 
-export default Navbar
+export default Navbar;

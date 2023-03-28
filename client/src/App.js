@@ -1,19 +1,18 @@
-import {ChakraProvider } from '@chakra-ui/react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import './App.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import ProductsScreen from './screens/ProductsScreen';
 
 function App() {
   return (
     <ChakraProvider>
-      <Router> 
-        <Navbar>
-          <main>
-            <Routes>
-              
-            </Routes>
-          </main>
-        </Navbar>
+      <Router>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path='/produits' element={<ProductsScreen />}></Route>
+          </Routes>
+        </main>
       </Router>
     </ChakraProvider>
   );
